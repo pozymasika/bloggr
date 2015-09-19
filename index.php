@@ -6,14 +6,16 @@ include 'connector.php';
 include '/templates/home_page.html.php';
 // display the home page
 
+// The links on the homepage.
 /* link for the avaibale posts
  * link to login to view and add posts
  * link to modify the posts
  * link to delete the posts compeletely
  * link to o logout on login.
  */
-
-//display the footer each time
-
-
+class csite() {
+	public function __consruct() {
+		
+	}
+}
 ?>
