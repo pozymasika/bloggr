@@ -1,0 +1,17 @@
+body {
+  margin: 0;
+}
+nav {
+  border: 2px #000 solid;
+  width: 99%;
+  height: 50px;
+  margin-left: 5px;
+}
+nav li {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+  list-style: : none;
+  display: inline;
+}
