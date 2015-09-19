@@ -1,6 +1,6 @@
 <?php
 // class to hold user login infomation
-class users {
+class Users {
 	var $user_name;
 	var $email;
 

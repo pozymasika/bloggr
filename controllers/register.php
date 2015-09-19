@@ -3,10 +3,10 @@
 // and registering their accounts
 include '/controllers/users.php';
 
-if(isset(_GET['register'])) {
+if(isset(_POST['register'])) {
 	//get the details from the form.
-    $user_name = $_GET['username'];
-    $passwd    = $_GET['password'];
+    $user_name = $_POST['username'];
+    $passwd    = $_POST['password'];
 
     // SQL to post this info to the database
 }
