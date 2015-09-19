@@ -8,6 +8,11 @@ class Blogs {
   public function __construct (PDO $db) {
     $this->db = $db;
   }
+
+  /**Create a single blog post
+  *$param string $post - the post
+  *@param atring $username - the user
+  */
   public function create($post,$username) {
     try {
       $sql = "INSERT INTO blog(post,by_who,time) VALUES(:post, :username, NOW())";
@@ -22,6 +27,10 @@ class Blogs {
     return true;
   }
 
+  /**
+  *Reads a single blog post
+  *@param int $id - the post id
+  */
   public function read($id) {
     try {
       $sql = "SELECT post,time FROM blog WHERE id=:id LIMIT 1";
@@ -36,6 +45,10 @@ class Blogs {
     return $results;
   }
 
+  /**
+  *Reads all posts
+  *@param string $username - the user
+  */
   public function all($username) {
     try {
       $sql = "SELECT post,time FROM blog WHERE by_who=:username";
@@ -50,6 +63,11 @@ class Blogs {
     }
   }
 
+  /**
+  *Update a single post
+  *@param int $id - the post id
+  *@param string $post - the new post
+  */
   public function update($id,$post) {
     try {
       $sql = "UPDATE blog SET post=:post WHERE id=:id";
