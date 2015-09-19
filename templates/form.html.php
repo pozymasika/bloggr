@@ -17,7 +17,7 @@
 
        <!-- Sending data from use to /controller/register.php -->
 
-      	<form method="POST" action="/contoller/register.php" name="register">
+      	<form method="POST" action="../controllers/register.php" name="register">
       		<input class="form" type="text" name="username" placeholder="username"><br>
       		<input  class="form" type="password" name="password" placeholder="password"><br>
       		<input type="submit" value="submit" name="submit"><br>

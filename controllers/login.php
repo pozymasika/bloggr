@@ -1,21 +1,32 @@
 <?php
+session_start();
 // Collecting the user infomation 
 // and checking the boolean value
-include '/controlers/users.php';
+include 'users.php';
+include '../config.php';
 
-if(isset(_GET['login'])) {
-	if($userName === $user_name) {
+if(isset($_POST)) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
+	
+	$usr = new Users($db);
 
-		// Run the SQL to login the user
-		// the user to their accounts.
-
-	} else {
-		$error = "You are not a registered user.";
-		include '/templates/error.html.php';
-		exit();
+	try {
+		$is_correct = $usr->login($username, $password);
+		var_dump($is_correct);
+		if($is_correct) {
+			$_SESSION['username'] = $username;
+			 header("Location: ../templates/home_page.html.php");
+		} else {
+			echo "Wrong details.";
+		}
 	}
 
-	// The user can now access acoount specific infomation
+	catch(PDOException $e) {
+		echo $e->getMessage();
+	}
 }
+
+	
 
 ?>

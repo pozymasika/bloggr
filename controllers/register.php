@@ -1,24 +1,27 @@
 <?php
 // Collecting user info for the fist time 
 // and registering their accounts
-include '/controllers/users.php';
+include 'users.php';
+include '../config.php';
+if(isset($_POST)) {
+	$username = $_POST['username'];
+	$password = $_POST['password'];
 
-if(isset(_POST['register'])) {
-	//get the details from the form.
-    $user_name = $_POST['username'];
-    $passwd    = $_POST['password'];
+	$usr = new Users($db);
 
-    // SQL to post this info to the database
+	try {
+
+		$is_correct = $usr->register($username, $password);
+		if($is_correct) {
+			echo "Details Correct.";
+		} else  {
+			echo "Wrong details";
+		}
+	}
+
+	catch (PDOException $e) {
+		echo $e->getMessage();
+	}
+
 }
-
-/* The following contains 
- * intentional syntax error.
-*/
-
-if("""Posting the form info was successful""") {
-	$message = "You have successfully mae your account";
-	include '/templates/messages.html.php';
-	exit();
-}
-
 ?>
